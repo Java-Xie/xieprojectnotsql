@@ -1,6 +1,6 @@
-package com.chu.xieproject.xieproject.util;
+package com.chu.xieproject.util;
 
-import com.chu.xieproject.xieproject.entity.Users;
+import com.chu.xieproject.entity.Users;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;

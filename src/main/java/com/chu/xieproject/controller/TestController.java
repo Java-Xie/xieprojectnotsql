@@ -1,6 +1,6 @@
-package com.chu.xieproject.xieproject.controller;
+package com.chu.xieproject.controller;
 
-import com.chu.xieproject.xieproject.service.testservices.TestService;
+import com.chu.xieproject.service.testservices.TestService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -62,12 +62,8 @@ public class TestController {
      */
     @RequestMapping("index")
     public String index(String loginname,String password){
-        if (testService.Login(loginname,password)){
-            System.out.println("登录成功");
-            return "index";
-        }
-        System.out.println("登录失败");
-        return "test";
+        System.out.println("登录成功");
+        return "index";
     }
 
     @RequestMapping("/doLogin")

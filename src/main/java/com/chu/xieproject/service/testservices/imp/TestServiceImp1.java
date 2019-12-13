@@ -1,6 +1,6 @@
-package com.chu.xieproject.xieproject.service.testservices.imp;
+package com.chu.xieproject.service.testservices.imp;
 
-import com.chu.xieproject.xieproject.service.testservices.TestService;
+import com.chu.xieproject.service.testservices.TestService;
 import org.springframework.stereotype.Service;
 
 @Service

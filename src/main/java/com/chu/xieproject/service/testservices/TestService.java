@@ -1,4 +1,4 @@
-package com.chu.xieproject.xieproject.service.testservices;
+package com.chu.xieproject.service.testservices;
 
 public interface TestService {
 

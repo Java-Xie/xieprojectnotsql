@@ -1,6 +1,6 @@
-package com.chu.xieproject.xieproject.config;
+package com.chu.xieproject.config;
 
-import com.chu.xieproject.xieproject.util.UserRealm;
+import com.chu.xieproject.util.UserRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.beans.factory.annotation.Qualifier;

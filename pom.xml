@@ -8,10 +8,9 @@
         <version>2.2.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.chu.xieproject</groupId>
+    <groupId>com.chu</groupId>
     <artifactId>xieproject</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>xieproject</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

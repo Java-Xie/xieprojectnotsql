@@ -1,4 +1,4 @@
-package com.chu.xieproject.xieproject.entity;
+package com.chu.xieproject.entity;
 
 public class Users {
         private Integer uid;
