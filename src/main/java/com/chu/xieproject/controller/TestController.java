@@ -9,6 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class TestController {
 
@@ -27,6 +30,16 @@ public class TestController {
     @ResponseBody
     public String test(){
         return "test";
+    }
+
+    //注册
+    @RequestMapping("/register")
+    @ResponseBody
+    public Map register(String name, String pwd){
+        Map map = new HashMap();
+        map.put("name","admin");
+        map.put("pwd","123");
+        return map;
     }
 
     /**

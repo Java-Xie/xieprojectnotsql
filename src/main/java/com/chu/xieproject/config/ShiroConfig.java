@@ -26,6 +26,7 @@ public class ShiroConfig {
         //认证授权
         filterMap.put("/test","anon");
         filterMap.put("/doLogin","anon");
+        filterMap.put("/register","anon");
         filterMap.put("/update","perms[user:update]");
         filterMap.put("/add","perms[user:add]");
         filterMap.put("/*","authc");
