@@ -6,6 +6,7 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,6 +29,8 @@ public class TestController {
      */
     @RequestMapping("test")
     @ResponseBody
+    //配置跨域
+    @CrossOrigin
     public String test(){
         return "test";
     }
@@ -35,10 +38,13 @@ public class TestController {
     //注册
     @RequestMapping("/register")
     @ResponseBody
+    //配置跨域
+    @CrossOrigin
     public Map register(String name, String pwd){
         Map map = new HashMap();
         map.put("name","admin");
         map.put("pwd","123");
+        System.out.println("访问到了controller,name为"+name+"密码为："+pwd);
         return map;
     }
 
