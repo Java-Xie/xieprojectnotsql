@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <script src="/js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <input id="file" type="file" value="选择文件">
+    <input type="button" value="上传" onclick="uploading()">
+</body>
+<script>
+    $(function(){
+        console.log("加载事件")
+    })
+    function uploading(){
+        let formData = new FormData();
+        formData.append("file",$("#file")[0].files[0]);
+        $.ajax({
+            url : "http://localhost:8080/fileuploaded",
+            data: formData,
+            type : "POST",
+            // 告诉jQuery不要去处理发送的数据，用于对data参数进行序列化处理 这里必须false
+            processData : false,
+            // 告诉jQuery不要去设置Content-Type请求头
+            contentType : false,
+            dataType:"json",
+            success : function(json) {
+                console.log("测试:"+json)
+            },
+            error : function(json) {
+            }
+        });
+    }
+</script>
+</html>

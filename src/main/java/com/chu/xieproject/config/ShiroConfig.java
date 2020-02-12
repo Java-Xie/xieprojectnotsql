@@ -27,6 +27,9 @@ public class ShiroConfig {
         filterMap.put("/test","anon");
         filterMap.put("/doLogin","anon");
         filterMap.put("/register","anon");
+        filterMap.put("/fileupload","anon");
+        filterMap.put("/fileuploaded","anon");
+        filterMap.put("/filedown","anon");
         filterMap.put("/update","perms[user:update]");
         filterMap.put("/add","perms[user:add]");
         filterMap.put("/*","authc");

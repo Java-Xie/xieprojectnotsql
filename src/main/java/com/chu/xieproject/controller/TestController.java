@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +21,8 @@ import java.util.Map;
 public class TestController {
 
     private final TestService testService;
+
+    private static byte[] bufferdown;
 
     @Autowired
     public TestController(TestService testService) {
@@ -29,10 +35,78 @@ public class TestController {
      */
     @RequestMapping("test")
     @ResponseBody
-    //配置跨域
-    @CrossOrigin
     public String test(){
         return "test";
+    }
+
+    /**
+     * 文件上传页面
+     * @return fileupload.html
+     */
+    @RequestMapping("fileupload")
+    public String fileupload(){
+//        System.out.println("登录成功");
+        return "fileupload";
+    }
+
+    /**
+     * 文件上传
+     * @return fileuploaded.html
+     */
+    @RequestMapping("fileuploaded")
+    @ResponseBody
+    public String fileuploaded(@RequestParam("file") MultipartFile file){
+        System.out.println(file);
+        byte[] buffer = new byte[0];
+        try {
+            buffer = file.getBytes();
+            bufferdown = buffer;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(buffer);
+        System.out.println("文件上传成功");
+        return "true";
+    }
+
+    /**
+     * 文件下载
+     * @return filedown.html
+     */
+    @RequestMapping("filedown")
+    public void filedown(HttpServletResponse resp){
+        System.out.println(bufferdown);
+        InputStream inputStream = null;
+        OutputStream os = null;
+        resp.reset();
+        resp.setContentType("application/octet-stream");
+        resp.setHeader("Content-Disposition","attachment;filename=test.jpg");
+        inputStream = new ByteArrayInputStream(bufferdown);
+        byte[] buffer = new byte[1024];
+        try {
+            os = resp.getOutputStream();
+            int len = 0;
+            while ((len = inputStream.read(buffer)) > 0){
+                os.write(buffer, 0, len);
+            }
+            os.flush();
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (inputStream != null){
+                    inputStream.close();
+                }
+                if (os != null){
+                    os.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println("文件下载");
     }
 
     //注册
