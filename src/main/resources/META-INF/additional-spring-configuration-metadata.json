@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "chu.test.value",
+      "type": "java.lang.String",
+      "description": "Description for chu.test.value."
+  }
+] }
