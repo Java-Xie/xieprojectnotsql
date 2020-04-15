@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class XieprojectApplication {
+public class XieProjectNotSqlApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(XieprojectApplication.class, args);
+        SpringApplication.run(XieProjectNotSqlApplication.class, args);
     }
 
 }

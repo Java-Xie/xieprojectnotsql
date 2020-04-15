@@ -17,7 +17,7 @@
         let formData = new FormData();
         formData.append("file",$("#file")[0].files[0]);
         $.ajax({
-            url : "http://localhost:8080/fileuploaded",
+            url : "http://localhost:8080/file/fileUploadedSpire",
             data: formData,
             type : "POST",
             // 告诉jQuery不要去处理发送的数据，用于对data参数进行序列化处理 这里必须false

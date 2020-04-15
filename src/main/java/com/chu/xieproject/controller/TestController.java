@@ -57,6 +57,10 @@ public class TestController {
     @ResponseBody
     public String fileuploaded(@RequestParam("file") MultipartFile file){
         System.out.println(file);
+        System.out.println(file.getName());
+        System.out.println(file.getContentType());
+        System.out.println(file.getOriginalFilename());
+        System.out.println(file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf(".")));
         byte[] buffer = new byte[0];
         try {
             buffer = file.getBytes();

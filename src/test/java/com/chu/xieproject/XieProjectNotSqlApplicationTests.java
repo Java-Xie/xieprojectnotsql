@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class XieprojectApplicationTests {
+class XieProjectNotSqlApplicationTests {
 
     private TestService testService;
 
@@ -20,7 +20,7 @@ class XieprojectApplicationTests {
     private String chuValue;
 
     @Autowired
-    XieprojectApplicationTests(TestService testService) {
+    XieProjectNotSqlApplicationTests(TestService testService) {
         this.testService = testService;
     }
 
