@@ -12,6 +12,15 @@
 <script>
     $(function(){
         console.log("加载事件")
+        $.ajax({
+            url : "http://192.168.5.22:80/dataConfig/dataTable/list",
+            type : "GET",
+            success : function(json) {
+                console.log("测试:"+json)
+            },
+            error : function(json) {
+            }
+        });
     })
     function uploading(){
         let formData = new FormData();
