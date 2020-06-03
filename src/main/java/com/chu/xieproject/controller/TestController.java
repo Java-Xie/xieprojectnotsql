@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.HashMap;
@@ -118,10 +119,11 @@ public class TestController {
     @ResponseBody
     //配置跨域
     @CrossOrigin
-    public Map register(String name, String pwd){
+    public Map register(HttpServletRequest request, String name, String pwd){
         Map map = new HashMap();
         map.put("name","admin");
         map.put("pwd","123");
+        map.put("code", 200);
         System.out.println("访问到了controller,name为"+name+"密码为："+pwd);
         return map;
     }

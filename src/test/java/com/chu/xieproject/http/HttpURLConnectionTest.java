@@ -15,7 +15,7 @@ public class HttpURLConnectionTest {
          *手机信息查询接口：http://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=手机号
          　　　　 *　　　　　　http://api.showji.com/Locating/www.showji.com.aspx?m=手机号&output=json&callback=querycallback
          */
-        doPostOrGet("http://localhost/swagger-resources/configuration/ui", "");
+        doPostOrGet("http://localhost:8080/file/filedown", "");
     }
 
     /**
@@ -59,15 +59,27 @@ public class HttpURLConnectionTest {
              */
             //获取URLConnection对象对应的输入流
             InputStream is = conn.getInputStream();
-            //构造一个字符流缓存
-            br = new BufferedReader(new InputStreamReader(is));
-            String str = "";
-            while ((str = br.readLine()) != null){
-                result += str;
+            // 设置写入流的地址
+            File file = new File("C:\\Users\\xie\\Desktop\\outputFile.PDF");
+            // 创建一个文件输出流
+            OutputStream outputStream = new FileOutputStream(file);
+            // 开始拷贝
+            int temp = 0;
+            while ((temp = is.read()) != -1){
+                //边读边写
+                outputStream.write(temp);
             }
-            System.out.println(result);
-            //关闭流
+            //构造一个字符流缓存
+//            br = new BufferedReader(new InputStreamReader(is));
+//            String str = "";
+//            while ((str = br.readLine()) != null){
+//                result += str;
+//            }
+//            System.out.println(result);
+            //关闭输入流
             is.close();
+            // 关闭输出流
+            outputStream.close();
             //断开连接，disconnect是在底层tcp socket链接空闲时才切断，如果正在被其他线程使用就不切断。
             conn.disconnect();
 

@@ -12,21 +12,21 @@
 <script>
     $(function(){
         console.log("加载事件")
-        $.ajax({
-            url : "http://192.168.5.22:80/dataConfig/dataTable/list",
-            type : "GET",
-            success : function(json) {
-                console.log("测试:"+json)
-            },
-            error : function(json) {
-            }
-        });
+        // $.ajax({
+        //     url : "http://192.168.5.22:80/dataConfig/dataTable/list",
+        //     type : "GET",
+        //     success : function(json) {
+        //         console.log("测试:"+json)
+        //     },
+        //     error : function(json) {
+        //     }
+        // });
     })
     function uploading(){
         let formData = new FormData();
         formData.append("file",$("#file")[0].files[0]);
         $.ajax({
-            url : "http://localhost:8080/file/fileUploadedSpire",
+            url : "http://localhost:8080/file/fileuploaded",
             data: formData,
             type : "POST",
             // 告诉jQuery不要去处理发送的数据，用于对data参数进行序列化处理 这里必须false
@@ -35,7 +35,7 @@
             contentType : false,
             dataType:"json",
             success : function(json) {
-                console.log("测试:"+json)
+                console.log(json)
             },
             error : function(json) {
             }
